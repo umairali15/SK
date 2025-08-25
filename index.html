@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domain Owned by Umair Ali</title>
+    <title>Domain Owned by Umair Ali - Upside Down Edition</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Bungee&family=Iceland&display=swap');
         
         * {
             margin: 0;
@@ -14,16 +14,39 @@
         }
         
         body {
-            font-family: 'VT323', monospace;
-            background: #0a0a0a;
-            color: #00ff41;
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 50%, #330066 100%);
+            color: #ff006e;
             min-height: 100vh;
             overflow: hidden;
             position: relative;
         }
         
-        /* CRT Scanlines Effect */
+        /* Animated Background Grid */
         body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(cyan 1px, transparent 1px),
+                linear-gradient(90deg, cyan 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.1;
+            animation: grid-move 20s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        /* VHS Static Effect */
+        body::after {
             content: '';
             position: fixed;
             top: 0;
@@ -34,167 +57,333 @@
                 0deg,
                 transparent,
                 transparent 2px,
-                rgba(0, 255, 65, 0.03) 2px,
-                rgba(0, 255, 65, 0.03) 4px
+                rgba(255, 0, 110, 0.02) 2px,
+                rgba(0, 255, 255, 0.02) 4px
             );
-            pointer-events: none;
-            z-index: 1000;
-        }
-        
-        /* CRT Screen Flicker */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 255, 65, 0.02);
-            animation: flicker 0.15s infinite linear alternate;
+            animation: vhs-flicker 0.1s infinite linear alternate;
             pointer-events: none;
             z-index: 999;
         }
         
-        @keyframes flicker {
-            0% { opacity: 1; }
-            50% { opacity: 0.98; }
-            100% { opacity: 1; }
+        @keyframes vhs-flicker {
+            0% { opacity: 1; transform: translateX(0px); }
+            10% { opacity: 0.95; transform: translateX(1px); }
+            20% { opacity: 1; transform: translateX(-1px); }
+            30% { opacity: 0.98; transform: translateX(0px); }
+            40% { opacity: 1; transform: translateX(1px); }
+            50% { opacity: 0.97; transform: translateX(0px); }
+            60% { opacity: 1; transform: translateX(-1px); }
+            70% { opacity: 0.99; transform: translateX(0px); }
+            80% { opacity: 1; transform: translateX(1px); }
+            90% { opacity: 0.96; transform: translateX(0px); }
+            100% { opacity: 1; transform: translateX(0px); }
         }
         
         .terminal {
-            background: #0a0a0a;
-            border: 3px solid #00ff41;
+            background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f1419 100%);
+            border: 4px solid #ff006e;
             box-shadow: 
-                0 0 20px #00ff41,
-                inset 0 0 20px rgba(0, 255, 65, 0.1);
-            margin: 50px auto;
-            max-width: 800px;
+                0 0 30px #ff006e,
+                0 0 60px #00d4ff,
+                inset 0 0 30px rgba(255, 0, 110, 0.1);
+            margin: 40px auto;
+            max-width: 900px;
             width: 90%;
-            border-radius: 10px;
-            padding: 20px;
+            border-radius: 15px;
+            padding: 30px;
             position: relative;
+            animation: terminal-glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes terminal-glow {
+            0% { 
+                box-shadow: 
+                    0 0 30px #ff006e,
+                    0 0 60px #00d4ff,
+                    inset 0 0 30px rgba(255, 0, 110, 0.1);
+            }
+            100% { 
+                box-shadow: 
+                    0 0 50px #ff006e,
+                    0 0 80px #00d4ff,
+                    0 0 20px #8a2be2,
+                    inset 0 0 40px rgba(255, 0, 110, 0.2);
+            }
         }
         
         .terminal-header {
-            background: #00ff41;
-            color: #0a0a0a;
-            padding: 10px;
-            margin: -20px -20px 20px -20px;
-            font-family: 'Share Tech Mono', monospace;
+            background: linear-gradient(90deg, #ff006e, #8a2be2, #00d4ff);
+            color: #000;
+            padding: 15px;
+            margin: -30px -30px 30px -30px;
+            font-family: 'Bungee', cursive;
             text-align: center;
-            font-weight: bold;
-            border-radius: 7px 7px 0 0;
+            font-weight: 900;
+            border-radius: 12px 12px 0 0;
+            font-size: 1.2rem;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+            animation: header-pulse 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes header-pulse {
+            0% { background: linear-gradient(90deg, #ff006e, #8a2be2, #00d4ff); }
+            100% { background: linear-gradient(90deg, #00d4ff, #ff006e, #8a2be2); }
         }
         
         .ascii-art {
-            font-family: 'VT323', monospace;
-            font-size: 12px;
-            line-height: 1;
+            font-family: 'Iceland', monospace;
+            font-size: 14px;
+            line-height: 1.1;
             text-align: center;
-            margin-bottom: 20px;
-            color: #00ff41;
-            text-shadow: 0 0 10px #00ff41;
+            margin-bottom: 30px;
+            color: #00d4ff;
+            text-shadow: 
+                0 0 10px #00d4ff,
+                0 0 20px #00d4ff,
+                0 0 30px #00d4ff;
+            animation: neon-flicker 1.5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes neon-flicker {
+            0% { 
+                text-shadow: 
+                    0 0 10px #00d4ff,
+                    0 0 20px #00d4ff,
+                    0 0 30px #00d4ff;
+                opacity: 1;
+            }
+            100% { 
+                text-shadow: 
+                    0 0 5px #00d4ff,
+                    0 0 15px #00d4ff,
+                    0 0 25px #00d4ff,
+                    0 0 35px #00d4ff;
+                opacity: 0.9;
+            }
         }
         
         .content {
             text-align: center;
-            animation: typewriter 2s steps(40) 1s both;
-        }
-        
-        @keyframes typewriter {
-            from { width: 0; }
-            to { width: 100%; }
+            position: relative;
         }
         
         h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 20px #00ff41;
-            animation: glow 2s ease-in-out infinite alternate;
+            font-family: 'Bungee', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #ff006e, #8a2be2, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 
+                0 0 20px #ff006e,
+                0 0 40px #8a2be2,
+                0 0 60px #00d4ff;
+            animation: title-glow 2s ease-in-out infinite alternate;
+            position: relative;
         }
         
-        @keyframes glow {
-            from { text-shadow: 0 0 20px #00ff41; }
-            to { text-shadow: 0 0 30px #00ff41, 0 0 40px #00ff41; }
+        @keyframes title-glow {
+            0% { 
+                filter: drop-shadow(0 0 10px #ff006e) drop-shadow(0 0 20px #8a2be2);
+                transform: scale(1);
+            }
+            100% { 
+                filter: drop-shadow(0 0 20px #ff006e) drop-shadow(0 0 30px #8a2be2) drop-shadow(0 0 40px #00d4ff);
+                transform: scale(1.05);
+            }
         }
         
         .domain-info {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            font-family: 'Iceland', monospace;
+            color: #ff006e;
+            text-shadow: 0 0 15px #ff006e;
         }
         
         .owner-name {
-            color: #ffff00;
-            text-shadow: 0 0 15px #ffff00;
-            animation: pulse 1.5s infinite;
+            color: #00d4ff;
+            text-shadow: 
+                0 0 15px #00d4ff,
+                0 0 25px #00d4ff;
+            animation: owner-pulse 1.8s infinite ease-in-out;
+            font-weight: 700;
         }
         
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
+        @keyframes owner-pulse {
+            0% { 
+                opacity: 1;
+                text-shadow: 
+                    0 0 15px #00d4ff,
+                    0 0 25px #00d4ff;
+            }
+            50% { 
+                opacity: 0.8;
+                text-shadow: 
+                    0 0 25px #00d4ff,
+                    0 0 35px #00d4ff,
+                    0 0 45px #8a2be2;
+            }
+            100% { 
+                opacity: 1;
+                text-shadow: 
+                    0 0 15px #00d4ff,
+                    0 0 25px #00d4ff;
+            }
         }
         
         .contact-section {
-            border: 2px solid #00ff41;
-            padding: 20px;
-            margin-top: 2rem;
-            background: rgba(0, 255, 65, 0.05);
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+            border: 3px solid #8a2be2;
+            padding: 25px;
+            margin-top: 2.5rem;
+            background: linear-gradient(145deg, rgba(138, 43, 226, 0.1), rgba(255, 0, 110, 0.05));
+            box-shadow: 
+                0 0 25px rgba(138, 43, 226, 0.4),
+                inset 0 0 25px rgba(255, 0, 110, 0.1);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff006e, #8a2be2, #00d4ff, #ff006e);
+            z-index: -1;
+            border-radius: 10px;
+            animation: border-rotate 3s linear infinite;
+        }
+        
+        @keyframes border-rotate {
+            0% { background: linear-gradient(45deg, #ff006e, #8a2be2, #00d4ff, #ff006e); }
+            25% { background: linear-gradient(135deg, #8a2be2, #00d4ff, #ff006e, #8a2be2); }
+            50% { background: linear-gradient(225deg, #00d4ff, #ff006e, #8a2be2, #00d4ff); }
+            75% { background: linear-gradient(315deg, #ff006e, #8a2be2, #00d4ff, #ff006e); }
+            100% { background: linear-gradient(45deg, #ff006e, #8a2be2, #00d4ff, #ff006e); }
         }
         
         .contact-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #ffff00;
-            text-shadow: 0 0 10px #ffff00;
+            font-family: 'Bungee', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #00d4ff;
+            text-shadow: 
+                0 0 10px #00d4ff,
+                0 0 20px #00d4ff;
+            animation: contact-flicker 2.5s infinite;
+        }
+        
+        @keyframes contact-flicker {
+            0%, 90%, 100% { opacity: 1; }
+            95% { opacity: 0.8; }
         }
         
         .contact-info {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            font-family: 'Iceland', monospace;
+            color: #ff006e;
         }
         
         .email-link {
-            color: #ff00ff;
+            color: #8a2be2;
             text-decoration: none;
-            text-shadow: 0 0 10px #ff00ff;
+            text-shadow: 0 0 15px #8a2be2;
             transition: all 0.3s ease;
+            font-weight: 700;
+            position: relative;
         }
         
         .email-link:hover {
-            color: #ffff00;
-            text-shadow: 0 0 20px #ffff00;
-            background: rgba(255, 255, 0, 0.1);
-            padding: 2px 4px;
+            color: #00d4ff;
+            text-shadow: 
+                0 0 20px #00d4ff,
+                0 0 30px #00d4ff,
+                0 0 40px #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+            padding: 5px 8px;
+            border-radius: 5px;
+            transform: scale(1.05);
         }
         
         .blink {
-            animation: blink 1s infinite;
+            animation: blink-neon 1.2s infinite;
+            color: #ff006e;
+            font-size: 1.5rem;
         }
         
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+        @keyframes blink-neon {
+            0%, 50% { 
+                opacity: 1;
+                text-shadow: 0 0 10px #ff006e;
+            }
+            51%, 100% { 
+                opacity: 0.3;
+                text-shadow: none;
+            }
+        }
+        
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00d4ff;
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+            box-shadow: 0 0 10px #00d4ff;
+        }
+        
+        .particle:nth-child(2) {
+            background: #ff006e;
+            box-shadow: 0 0 10px #ff006e;
+            animation-delay: -2s;
+            animation-duration: 8s;
+        }
+        
+        .particle:nth-child(3) {
+            background: #8a2be2;
+            box-shadow: 0 0 10px #8a2be2;
+            animation-delay: -4s;
+            animation-duration: 7s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 1; }
+            25% { transform: translateY(-20px) translateX(10px) rotate(90deg); opacity: 0.8; }
+            50% { transform: translateY(-40px) translateX(-5px) rotate(180deg); opacity: 0.6; }
+            75% { transform: translateY(-20px) translateX(-10px) rotate(270deg); opacity: 0.8; }
         }
         
         @media (max-width: 600px) {
             .terminal {
                 margin: 20px auto;
                 width: 95%;
+                padding: 20px;
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
             .ascii-art {
-                font-size: 8px;
+                font-size: 10px;
             }
             
             .domain-info {
+                font-size: 1.4rem;
+            }
+            
+            .contact-title {
+                font-size: 1.4rem;
+            }
+            
+            .contact-info {
                 font-size: 1.2rem;
             }
         }
@@ -202,36 +391,37 @@
 </head>
 <body>
     <div class="terminal">
+        <div class="particle" style="top: 20%; left: 10%;"></div>
+        <div class="particle" style="top: 60%; left: 80%;"></div>
+        <div class="particle" style="top: 30%; left: 60%;"></div>
+        
         <div class="terminal-header">
-            === DOMAIN REGISTRY TERMINAL v2.1 ===
+            ≋ HAWKINS LAB DOMAIN REGISTRY ≋ 1985 ≋
         </div>
         
         <div class="ascii-art">
- ____   ___  __  __    _    ___ _   _ 
-|  _ \ / _ \|  \/  |  / \  |_ _| \ | |
-| | | | | | | |\/| | / _ \  | ||  \| |
-| |_| | |_| | |  | |/ ___ \ | || |\  |
-|____/ \___/|_|  |_/_/   \_\___|_| \_|
-                                     
-    _____ _____ ____  __  __ 
-   |_   _| ____|  _ \|  \/  |
-     | | |  _| | |_) | |\/| |
-     | | | |___|  _ <| |  | |
-     |_| |_____|_| \_\_|  |_|
+██╗   ██╗██████╗ ███████╗██╗██████╗ ███████╗    ██████╗  ██████╗ ██╗    ██╗███╗   ██╗
+██║   ██║██╔══██╗██╔════╝██║██╔══██╗██╔════╝    ██╔══██╗██╔═══██╗██║    ██║████╗  ██║
+██║   ██║██████╔╝███████╗██║██║  ██║█████╗      ██║  ██║██║   ██║██║ █╗ ██║██╔██╗ ██║
+██║   ██║██╔═══╝ ╚════██║██║██║  ██║██╔══╝      ██║  ██║██║   ██║██║███╗██║██║╚██╗██║
+╚██████╔╝██║     ███████║██║██████╔╝███████╗    ██████╔╝╚██████╔╝╚███╔███╔╝██║ ╚████║
+ ╚═════╝ ╚═╝     ╚══════╝╚═╝╚═════╝ ╚══════╝    ╚═════╝  ╚═════╝  ╚══╝╚══╝ ╚═╝  ╚═══╝
         </div>
         
         <div class="content">
-            <h1>> DOMAIN ACQUIRED</h1>
+            <h1>⚡ DOMAIN ACQUIRED ⚡</h1>
             <div class="domain-info">
-                STATUS: REGISTERED TO <span class="owner-name">UMAIR ALI</span>
+                STATUS: REGISTERED TO <span class="owner-name">UMAIR ALI</span><br>
+                DIMENSION: RIGHTSIDE UP
             </div>
             
             <div class="contact-section">
-                <div class="contact-title">>> PURCHASE INQUIRIES</div>
+                <div class="contact-title">⚡⚡ TRANSMISSION RECEIVED ⚡⚡</div>
                 <div class="contact-info">
-                    DOMAIN ACQUISITION AVAILABLE<br>
-                    CONTACT: <a href="mailto:YouWish@Thisdomainwasyours.com" class="email-link">YouWish@Thisdomainwasyours.com</a><br>
-                    <span class="blink">_</span>
+                    DOMAIN TRANSFER PROTOCOL ACTIVE<br>
+                    CONTACT VIA RADIO FREQUENCY:<br>
+                    <a href="mailto:YouWish@Thisdomainwasyours.com" class="email-link">YouWish@Thisdomainwasyours.com</a><br>
+                    TRANSMISSION STATUS: <span class="blink">●</span> LIVE
                 </div>
             </div>
         </div>
